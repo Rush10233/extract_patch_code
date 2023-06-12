@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html [
+	<!ENTITY nbsp "&#xA0;">
+	<!ENTITY sdot "&#x22C5;">
+]>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!-- git web interface version 2.39.3, (C) 2005-2006, Kay Sievers <kay.sievers@vrfy.org>, Christian Gierke -->
+<!-- git core binaries version 2.39.3 -->
+<head>
+<meta name="generator" content="gitweb/2.39.3 git/2.39.3"/>
+<meta name="robots" content="index, nofollow"/>
+<title>gcc.gnu.org Git - gcc.git/blobdiff - gcc/cp/call.c</title>
+<base href="https://gcc.gnu.org/git" />
+<link rel="stylesheet" type="text/css" href="static/gitweb.css"/>
+<link rel="alternate" title="gcc.git - history of gcc/cp/call.c - RSS feed" href="/git?p=gcc.git;a=rss;f=gcc/cp/call.c" type="application/rss+xml" />
+<link rel="alternate" title="gcc.git - history of gcc/cp/call.c - RSS feed (no merges)" href="/git?p=gcc.git;a=rss;f=gcc/cp/call.c;opt=--no-merges" type="application/rss+xml" />
+<link rel="alternate" title="gcc.git - history of gcc/cp/call.c - Atom feed" href="/git?p=gcc.git;a=atom;f=gcc/cp/call.c" type="application/atom+xml" />
+<link rel="alternate" title="gcc.git - history of gcc/cp/call.c - Atom feed (no merges)" href="/git?p=gcc.git;a=atom;f=gcc/cp/call.c;opt=--no-merges" type="application/atom+xml" />
+<link rel="shortcut icon" href="static/git-favicon.png" type="image/png" />
+</head>
+<body>
+<div class="page_header">
+<a href="http://git-scm.com/" title="git homepage"><img alt="git" class="logo" height="27" src="static/git-logo.png" width="72" /></a><a href="/git">git://gcc.gnu.org</a> / <a href="/git?p=gcc.git;a=summary">gcc.git</a> / blobdiff
+</div>
+<form method="get" action="/git" enctype="multipart/form-data"><div class="search">
+<input name="p" type="hidden" value="gcc.git" />
+<input name="a" type="hidden" value="search" />
+<input name="h" type="hidden" value="6edee4b3d3a2c970eee897443c9b580ed5d8226b" />
+<select name="st" >
+<option selected="selected" value="commit">commit</option>
+<option value="grep">grep</option>
+<option value="author">author</option>
+<option value="committer">committer</option>
+<option value="pickaxe">pickaxe</option>
+</select> <a href="/git?p=gcc.git;a=search_help" title="search help">?</a> search:
+<input type="text" name="s"  />
+<span title="Extended regular expression"><label><input type="checkbox" name="sr" value="1" />re</label></span></div>
+</form>
+<div class="page_nav">
+<a href="/git?p=gcc.git;a=summary">summary</a> | <a href="/git?p=gcc.git;a=shortlog">shortlog</a> | <a href="/git?p=gcc.git;a=log">log</a> | <a href="/git?p=gcc.git;a=commit;h=6edee4b3d3a2c970eee897443c9b580ed5d8226b">commit</a> | <a href="/git?p=gcc.git;a=commitdiff;h=6edee4b3d3a2c970eee897443c9b580ed5d8226b">commitdiff</a> | <a href="/git?p=gcc.git;a=tree;h=a6397b40fbfb22f832d4ff59be79e34c8c609098;hb=6edee4b3d3a2c970eee897443c9b580ed5d8226b">tree</a><br/>
+<a href="/git?p=gcc.git;a=blobdiff_plain;f=gcc/cp/call.c;h=515a94200324277c842fe1d79afbec5a1493ce01;hp=5bad2634cb3b5136e4f7c9f20a47b984e4ac48ec;hb=6edee4b3d3a2c970eee897443c9b580ed5d8226b;hpb=f28c46cdb85172eb0e267b97e7a9d3befac30a2e">raw</a> | inline | <a href="/git?p=gcc.git;a=blobdiff;f=gcc/cp/call.c;h=515a94200324277c842fe1d79afbec5a1493ce01;hp=5bad2634cb3b5136e4f7c9f20a47b984e4ac48ec;hb=6edee4b3d3a2c970eee897443c9b580ed5d8226b;hpb=f28c46cdb85172eb0e267b97e7a9d3befac30a2e;ds=sidebyside">side by side</a><br/>
+</div>
+<div class="header">
+<a class="title" href="/git?p=gcc.git;a=commit;h=6edee4b3d3a2c970eee897443c9b580ed5d8226b">re PR c++/88969 (ICE in build_op_delete_call, at cp/call.c:6509)</a>
+</div>
+<div class="page_path"><a href="/git?p=gcc.git;a=tree;hb=6edee4b3d3a2c970eee897443c9b580ed5d8226b" title="tree root">[gcc.git]</a> / <a href="/git?p=gcc.git;a=tree;f=gcc;hb=6edee4b3d3a2c970eee897443c9b580ed5d8226b" title="gcc">gcc</a> / <a href="/git?p=gcc.git;a=tree;f=gcc/cp;hb=6edee4b3d3a2c970eee897443c9b580ed5d8226b" title="gcc/cp">cp</a> / <a href="/git?p=gcc.git;a=blob_plain;f=gcc/cp/call.c;hb=6edee4b3d3a2c970eee897443c9b580ed5d8226b" title="gcc/cp/call.c">call.c</a><br/></div>
+<div class="page_body">
+<div class="patchset">
+<div class="patch" id="patch1">
+<div class="diff header">diff --git <a class="path" href="/git?p=gcc.git;a=blob;f=gcc/cp/call.c;h=5bad2634cb3b5136e4f7c9f20a47b984e4ac48ec;hb=5bad2634cb3b5136e4f7c9f20a47b984e4ac48ec">a/gcc/cp/call.c</a> <a class="path" href="/git?p=gcc.git;a=blob;f=gcc/cp/call.c;h=515a94200324277c842fe1d79afbec5a1493ce01;hb=515a94200324277c842fe1d79afbec5a1493ce01">b/gcc/cp/call.c</a></div>
+<div class="diff extended_header">
+index 5bad2634cb3b5136e4f7c9f20a47b984e4ac48ec..515a94200324277c842fe1d79afbec5a1493ce01 100644<span class="info"> (file)</span><br/>
+</div>
+<div class="diff from_file">--- a/<a class="path" href="/git?p=gcc.git;a=blob;f=gcc/cp/call.c;h=5bad2634cb3b5136e4f7c9f20a47b984e4ac48ec;hb=5bad2634cb3b5136e4f7c9f20a47b984e4ac48ec">gcc/cp/call.c</a></div>
+<div class="diff to_file">+++ b/<a class="path" href="/git?p=gcc.git;a=blob;f=gcc/cp/call.c;h=515a94200324277c842fe1d79afbec5a1493ce01;hb=515a94200324277c842fe1d79afbec5a1493ce01">gcc/cp/call.c</a></div>
+<div class="diff chunk_header"><span class="chunk_info">@@ <a class="list" href="/git?p=gcc.git;a=blob;f=gcc/cp/call.c;h=5bad2634cb3b5136e4f7c9f20a47b984e4ac48ec;hb=5bad2634cb3b5136e4f7c9f20a47b984e4ac48ec#l6461">-6461,6</a> <a class="list" href="/git?p=gcc.git;a=blob;f=gcc/cp/call.c;h=515a94200324277c842fe1d79afbec5a1493ce01;hb=515a94200324277c842fe1d79afbec5a1493ce01#l6461">+6461,19</a> @@</span><span class="section">&nbsp;build_op_delete_call&nbsp;(enum&nbsp;tree_code&nbsp;code,&nbsp;tree&nbsp;addr,&nbsp;tree&nbsp;size,</span></div>
+<div class="diff ctx">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue;</div>
+<div class="diff ctx">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div class="diff ctx">&nbsp;</div>
+<div class="diff add">+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;--&nbsp;If&nbsp;any&nbsp;of&nbsp;the&nbsp;deallocation&nbsp;functions&nbsp;is&nbsp;a&nbsp;destroying</div>
+<div class="diff add">+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;operator&nbsp;delete,&nbsp;all&nbsp;deallocation&nbsp;functions&nbsp;that&nbsp;are&nbsp;not</div>
+<div class="diff add">+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;destroying&nbsp;operator&nbsp;deletes&nbsp;are&nbsp;eliminated&nbsp;from&nbsp;further</div>
+<div class="diff add">+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;consideration.&nbsp;&nbsp;*/</div>
+<div class="diff add">+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bool&nbsp;fn_destroying&nbsp;=&nbsp;destroying_delete_p&nbsp;(fn);</div>
+<div class="diff add">+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bool&nbsp;elt_destroying&nbsp;=&nbsp;destroying_delete_p&nbsp;(elt);</div>
+<div class="diff add">+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(elt_destroying&nbsp;!=&nbsp;fn_destroying)</div>
+<div class="diff add">+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</div>
+<div class="diff add">+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(elt_destroying)</div>
+<div class="diff add">+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fn&nbsp;=&nbsp;elt;</div>
+<div class="diff add">+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue;</div>
+<div class="diff add">+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div class="diff add">+</div>
+<div class="diff ctx">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;--&nbsp;If&nbsp;the&nbsp;type&nbsp;has&nbsp;new-extended&nbsp;alignment,&nbsp;a&nbsp;function&nbsp;with&nbsp;a</div>
+<div class="diff ctx">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parameter&nbsp;of&nbsp;type&nbsp;std::align_val_t&nbsp;is&nbsp;preferred;&nbsp;otherwise&nbsp;a</div>
+<div class="diff ctx">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;without&nbsp;such&nbsp;a&nbsp;parameter&nbsp;is&nbsp;preferred.&nbsp;If&nbsp;exactly&nbsp;one</div>
+</div>
+</div>
+</div>
+<div class="page_footer">
+<div class="page_footer_text">GNU Compiler Collection</div>
+<a class="rss_logo" href="/git?p=gcc.git;a=rss;f=gcc/cp/call.c" title="history of gcc/cp/call.c RSS feed">RSS</a>
+<a class="rss_logo" href="/git?p=gcc.git;a=atom;f=gcc/cp/call.c" title="history of gcc/cp/call.c Atom feed">Atom</a>
+</div>
+<div id="generating_info">
+This page took <span id="generating_time" class="time_span">0.03496 seconds </span> and <span id="generating_cmd">5</span> git commands  to generate.
+</div>
+<script type="text/javascript" src="static/gitweb.js"></script>
+<script type="text/javascript">
+window.onload = function () {
+	var tz_cookie = { name: 'gitweb_tz', expires: 14, path: '/' };
+	onloadTZSetup('local', tz_cookie, 'datetime');
+};
+</script>
+</body>
+</html>
