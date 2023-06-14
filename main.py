@@ -30,11 +30,12 @@ if __name__ == '__main__':
     list_f=open(add_list)
     p_add=list_f.readline()
     while p_add:
-        cur=request_url(p_add)
+        n_add=p_add.split(' ')
+        cur=request_url(n_add[1])
         pn=ParseNavigation()
         pn.feed(cur)
         sources=pn.get_source()
-        patch_name=pn.get_patch_name()
+        patch_name='['+n_add[0]+']'+pn.get_patch_name()
         index=0
         for source in sources:
             #  print(source)
